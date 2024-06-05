@@ -50,13 +50,13 @@
                 <input class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none" type="password" />
             </div>
             <div class="mt-8">
-                <a href="/side-bar">
+                <router-link to="/dashboard">
                     <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Iniciar Sesion</button>
-                </a>
+                </router-link>
             </div>
             <div class="mt-4 flex items-center justify-between">
                 <span class="border-b w-1/5 md:w-1/4"></span>
-                <a href="/register" class="text-xs text-gray-500 uppercase">Crear Cuenta</a>
+                <router-link to="/register" class="text-xs text-gray-500 uppercase">Crear Cuenta</router-link>
                 <span class="border-b w-1/5 md:w-1/4"></span>
             </div>
         </div>
