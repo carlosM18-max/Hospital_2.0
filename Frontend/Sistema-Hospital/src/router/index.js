@@ -5,6 +5,7 @@ import RegisterView from '@/components/Register.vue'
 import DashboardView from '@/components/Dashboard.vue'
 import UserView from '@/components/User.vue'
 import PersonView from '@/components/Person.vue'
+import RequestView from '@/components/RequestTransplant.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,12 +28,12 @@ const router = createRouter({
         path: '/person',
         name: 'person',
         component: PersonView
-      }]
-    },
+      },
     {
-      path: '/user',
-      name: 'user',
-      component: UserView
+      path: '/requestTansplant',
+      name: 'requestTransplant',
+      component: RequestView
+    }]
     },
     {
       path: '/about',
