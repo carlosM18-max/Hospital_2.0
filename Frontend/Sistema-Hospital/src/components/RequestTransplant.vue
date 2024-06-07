@@ -131,7 +131,9 @@
     </div>
     <!-- Send Form -->
     <div class="mt-8">
+        <RouterLink to="/TableTransplante">
         <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-500">Generar
             Solicitud</button>
-    </div>
+        </RouterLink>
+        </div>
 </form></template>

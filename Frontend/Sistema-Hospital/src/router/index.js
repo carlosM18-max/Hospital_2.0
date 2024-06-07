@@ -6,6 +6,7 @@ import DashboardView from '@/components/Dashboard.vue'
 import UserView from '@/components/User.vue'
 import PersonView from '@/components/Person.vue'
 import RequestView from '@/components/RequestTransplant.vue'
+import TableRView from '@/components/TableRequest.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       path: '/requestTansplant',
       name: 'requestTransplant',
       component: RequestView
+    },
+    {
+      path: '/TableTransplante',
+      name: 'TableTransplante',
+      component: TableRView
     }]
     },
     {
