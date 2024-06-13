@@ -28,25 +28,20 @@
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
-                        <th scope="col" class="p-4">
+                        <th scope="col" class="p-4"  >
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Donador
+                            ID
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Donatario
+                            Especificaciones
                         </th>
                         <th scope="col" class="px-6 py-3">
-                            Medico
+                            Restricciones 
                         </th>
+                       
                         <th scope="col" class="px-6 py-3">
-                            Organo
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Prioridad
-                        </th>
-                        <th scope="col" class="px-6 py-3">
-                            Action
+                            Accion
                         </th>
                     </tr>
                 </thead>
@@ -64,12 +59,7 @@
                         <td class="px-6 py-4">
                             Laptop
                         </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
@@ -92,12 +82,7 @@
                         <td class="px-6 py-4">
                             Laptop PC
                         </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
-                        <td class="px-6 py-4">
-                            $1999
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
@@ -120,12 +105,7 @@
                         <td class="px-6 py-4">
                             Accessories
                         </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
-                        <td class="px-6 py-4">
-                            $99
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
@@ -148,12 +128,7 @@
                         <td class="px-6 py-4">
                             Accessories
                         </td>
-                        <td class="px-6 py-4">
-                            $179
-                        </td>
-                        <td class="px-6 py-4">
-                            $179
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
@@ -176,12 +151,7 @@
                         <td class="px-6 py-4">
                             Tablet
                         </td>
-                        <td class="px-6 py-4">
-                            $699
-                        </td>
-                        <td class="px-6 py-4">
-                            $699
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
@@ -203,12 +173,7 @@
                         <td class="px-6 py-4">
                             PC Desktop
                         </td>
-                        <td class="px-6 py-4">
-                            $3999
-                        </td>
-                        <td class="px-6 py-4">
-                            $3999
-                        </td>
+                        
                         <td class="px-6 py-4">
                             <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                                 <span class="material-symbols-outlined">edit</span>
