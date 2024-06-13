@@ -9,6 +9,21 @@ import RequestView from '@/components/RequestTransplant.vue'
 import TableRView from '@/components/TableRequest.vue'
 import OrgansView from '@/components/Organs.vue'
 
+
+
+
+
+
+// Seccion importaciones alyn
+
+
+
+
+
+
+
+
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -46,6 +61,25 @@ const router = createRouter({
       name: 'organos',
       component: OrgansView
     }
+
+
+
+
+
+    
+    // Seccion de rutas hijas Alyn
+
+
+
+
+
+
+
+
+
+
+
+
   ]
     },
     {
