@@ -14,8 +14,8 @@ import OrgansView from '@/components/Organs.vue'
 
 
 
-// Seccion importaciones alyn
 
+import OrganDetails from '@/components/Organ_Details.vue'
 
 
 
@@ -71,7 +71,12 @@ const router = createRouter({
 
 
 
-    // Seccion de rutas hijas Alyn
+    ,{
+      path: '/organdetails',
+      name: 'organdetails',
+      component: OrganDetails
+
+    }
 
 
 
