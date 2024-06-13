@@ -17,11 +17,14 @@
                         placeholder="Search for items">
                 </div>
                 <div>
+                    <RouterLink to="/organform">
                     <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
                         class="inline-flex items-center text-white bg-blue-500 border border-blue-300 focus:outline-none hover:bg-blue-400 focus:ring-4 focus:ring-blue-100 font-medium rounded-lg text-sm px-3 py-1.5 dark:bg-blue-800 dark:text-white dark:border-blue-600 dark:hover:bg-blue-700 dark:hover:border-blue-600 dark:focus:ring-blue-700"
                         type="button">
+
                         Agregar Organo
                     </button>
+                    </RouterLink>
                 </div>
                 <label for="table-search" class="sr-only">Search</label>
             </div>

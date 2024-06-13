@@ -16,6 +16,7 @@ import OrgansView from '@/components/Organs.vue'
 
 
 import OrganDetails from '@/components/Organ_Details.vue'
+import OrganForm from '@/components/OrganForm.vue'
 
 
 
@@ -76,6 +77,11 @@ const router = createRouter({
       name: 'organdetails',
       component: OrganDetails
 
+    },
+    {
+      path: '/organform',
+      name: 'organform',
+      component: OrganForm
     }
 
 
