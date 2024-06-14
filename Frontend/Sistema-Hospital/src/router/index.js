@@ -8,6 +8,7 @@ import PersonView from '@/components/Person.vue'
 import RequestView from '@/components/RequestTransplant.vue'
 import TableRView from '@/components/TableRequest.vue'
 import OrgansView from '@/components/Organs.vue'
+import FooterView from '@/components/Footer.vue'
 
 
 
@@ -61,6 +62,11 @@ const router = createRouter({
       path: '/organos',
       name: 'organos',
       component: OrgansView
+    },
+    {
+      path: '/footer',
+      name: 'footer',
+      component: FooterView
     }
 
 
