@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from pydantic import BaseModel
 from datetime import datetime
 from typing import Optional, List
@@ -34,26 +34,30 @@ def save_person(data_person: model_person):
     persons.append(data_person)
     return "Datos guardados correctamente"
 
+# Post route
+@person.post("/person{id}")
+def get_person(id: int):
+    for person in persons:
+        if person.id == id:
+            return person
+    return "Datos guardados correctamente"
+
 # Tarea PUT y DELETE
 
 # Put route
 @person.put("/person/{id}")
 def update_person(id: int, persona: model_person):
-    # Validamos si el id está dentro de la lista persons
-    if id >= len(persons) or id < 0:
-        # Si el id es mayor o igual a la longitud de la lista o es negativo, lanzara un error
-        raise HTTPException(status_code=404, detail="Persona no encontrada")
-    # Se actualizara la persona si el id esta en la lista persons
-    persons[id] = persona
-    return "Datos actualizados correctamente"
+   for index,person in enumerate(persons):
+       if person.id == id:
+           persona.id = id
+           persons[index]
+           return "Datos actualizados correctamente"
 
 # Delete route
 @person.delete("/person/{id}")
-def delete_person(id: int):
-    # Validamos si el id está dentro de la lista persons
-    if id >= len(persons) or id < 0:
-        # Si el id es mayor o igual a la longitud de la lista o es negativo, lanzara un error
-        raise HTTPException(status_code=404, detail="Persona no encontrada")
-    # Se eliminara la persona si el id esta en la lista persons
-    del persons[id]
-    return "Datos eliminados correctamente"
+def delete_person(id: int, persona: model_person):
+   for index,person in enumerate(persons):
+       if person.id == id:
+           persona.id = id
+           del persons[index]
+           return "Datos eliminados correctamente"
