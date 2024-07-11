@@ -2,24 +2,21 @@ from typing import List, Union
 from pydantic import BaseModel
 from datetime import datetime
 
-class UserBase(BaseModel):
-    persona_ID: int
-    nombre_usuario: str
-    correo_electronico: str
-    contrasena: str
-    numero_telefonico: str
+class UserRolBase(BaseModel):
+    usuario_ID: int
+    rol_ID: int
     estatus: bool
     Fecha_Registro: datetime
     Fecha_Actualizacion: datetime
+    
 
-
-class UserCreate(UserBase):
-    usuario: str
-
-class UserUpdate(UserBase):
+class UserRolCreate(UserRolBase):
     pass
 
-class User(UserBase):
+class UserRolUpdate(UserRolBase):
+    pass
+
+class UserRol(UserRolBase):
     id: int
     #owner_id: int clave foranea
     class Config:

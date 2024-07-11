@@ -2,28 +2,27 @@ from typing import List, Union
 from pydantic import BaseModel
 from datetime import datetime
 
-class PersonBase(BaseModel):
-    Titulo: str
+class RolBase(BaseModel):
     Nombre: str
-    Primer_Apellido: str
-    Segundo_Apellido: str
-    Fecha_Nacimiento: datetime
-    Fotografia: str
-    Genero: str
-    Tipo_Sangre: str
+    Descripcion: str
     Estatus: bool
     Fecha_Registro: datetime
     Fecha_Actualizacion: datetime
+    
 
-class PersonCreate(PersonBase):
+class RolCreate(RolBase):
     pass
 
-class PersonUpdate(PersonBase):
+class RolUpdate(RolBase):
     pass
 
-class Person(PersonBase):
+class Rol(RolBase):
     id: int
     #owner_id: int clave foranea
     class Config:
         orm_mode = True
+        
+# class UserLogin(BaseModel):
+#     usuario: str
+#     password: str
 
