@@ -3,29 +3,30 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class UserBase(BaseModel):
-    persona_ID: int
-    nombre_usuario: str
-    correo_electronico: str
-    contrasena: str
-    numero_telefonico: str
-    estatus: bool
+    Persona_ID: int
+    Nombre_Usuario: str
+    Correo_Electronico: str
+    Contrasena: str
+    Numero_Telefonico_Movil: str
+    Estatus: str
     Fecha_Registro: datetime
     Fecha_Actualizacion: datetime
 
 
 class UserCreate(UserBase):
-    usuario: str
+    pass
 
 class UserUpdate(UserBase):
     pass
 
 class User(UserBase):
-    id: int
-    #owner_id: int clave foranea
+    ID: int
+    Persona_ID: int
     class Config:
         orm_mode = True
         
-# class UserLogin(BaseModel):
-#     usuario: str
-#     password: str
-
+class UserLogin(BaseModel):
+    Nombre_Usuario: str
+    Correo_electronico: str
+    Contrasena: str
+    Numero_Telefonico_Movil: str

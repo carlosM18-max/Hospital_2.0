@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class PersonBase(BaseModel):
-    Titulo: str
+    Titulo_Cortesia: str
     Nombre: str
     Primer_Apellido: str
     Segundo_Apellido: str

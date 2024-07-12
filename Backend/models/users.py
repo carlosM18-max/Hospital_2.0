@@ -1,24 +1,26 @@
-from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, String, Boolean, DateTime, ForeignKey, Enum
 from sqlalchemy.dialects.mysql import LONGTEXT
 from sqlalchemy.orm import relationship
 from config.db import Base
+import models.persons
+import enum
+
+class MyEstatus (enum.Enum):
+    Activo = "Activo"
+    Inactivo = "Inactivo"
+    Bloqueado = "Bloqueado"
+    Suspendido = "Suspendico"
 
 class User(Base):
-    __tablename__ = "users"
+    __tablename__ = "tbb_users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    Persona_ID = Column(Integer, ForeignKey("persons.id"))
-    Nombre_Usuario = Column(String(255))
-    Correo_Electronico = Column(String(255))
-    Contrasena = Column(String(255))
-    Numero_Telefonico = Column(String(255))
-    Estatus = Column(Boolean, default=False)
+    ID = Column(Integer, primary_key=True, index=True)
+    Persona_ID = Column(Integer, ForeignKey("tbb_personas.ID"))
+    Nombre_Usuario = Column(String(60))
+    Correo_Electronico = Column(String(100))
+    Contrasena = Column(String(40))
+    Numero_Telefonico_Movil = Column(String(20))
+    Estatus = Column(Enum(MyEstatus))
     Fecha_Registro = Column(DateTime)
     Fecha_Actualizacion = Column(DateTime)
-    #items = relationship("Item", back_populates="owner") Clave Foranea
-    
-    # Relación con la tabla Person
-    persona = relationship("Person", back_populates="users")
-
-    # Relación inversa con la tabla UserRol
-    user_roles = relationship("UserRol", back_populates="user")
+    # Clave foránea para la relación uno a uno con User

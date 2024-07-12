@@ -4,15 +4,12 @@ from sqlalchemy.orm import relationship
 from config.db import Base
 
 class Roles(Base):
-    __tablename__ = "roles"
+    __tablename__ = "tbc_roles"
 
-    id = Column(Integer, primary_key=True, index=True)
-    Nombre = Column(String(255))
-    Descripcion = Column(String(255))
-    Estatus = Column(Boolean, default=False)
+    ID = Column(Integer, primary_key=True, index=True)
+    Nombre = Column(String(60))
+    Descripcion = Column(LONGTEXT)
+    Estatus = Column(Boolean)
     Fecha_Registro = Column(DateTime)
     Fecha_Actualizacion = Column(DateTime)
-    #items = relationship("Item", back_populates="owner")
     
-    # Relación con la tabla UserRol
-    user_roles = relationship("UserRol", back_populates="rol")

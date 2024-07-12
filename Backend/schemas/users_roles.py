@@ -3,12 +3,11 @@ from pydantic import BaseModel
 from datetime import datetime
 
 class UserRolBase(BaseModel):
-    usuario_ID: int
-    rol_ID: int
-    estatus: bool
+    Usuario_ID: int
+    Rol_ID: int
+    Estatus: bool
     Fecha_Registro: datetime
     Fecha_Actualizacion: datetime
-    
 
 class UserRolCreate(UserRolBase):
     pass
@@ -17,12 +16,7 @@ class UserRolUpdate(UserRolBase):
     pass
 
 class UserRol(UserRolBase):
-    id: int
-    #owner_id: int clave foranea
+    Usuario_ID: int
+    Rol_ID: int
     class Config:
         orm_mode = True
-        
-# class UserLogin(BaseModel):
-#     usuario: str
-#     password: str
-
