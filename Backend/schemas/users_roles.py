@@ -19,4 +19,4 @@ class UserRol(UserRolBase):
     Usuario_ID: int
     Rol_ID: int
     class Config:
-        orm_mode = True
+        from_attributes = True

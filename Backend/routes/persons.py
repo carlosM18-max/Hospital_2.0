@@ -2,6 +2,8 @@ from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 import crud.persons, config.db, schemas.persons, models.persons
 from typing import List
+from portadortoken import Portador
+
 
 person = APIRouter()
 
@@ -14,12 +16,12 @@ def get_db():
     finally:
         db.close()
 
-@person.get("/persons/", response_model=List[schemas.persons.Person], tags=["Personas"])
+@person.get("/persons/", response_model=List[schemas.persons.Person], tags=["Personas"], dependencies=[Depends(Portador())])
 def read_persons(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     db_persons= crud.persons.get_persons(db=db, skip=skip, limit=limit)
     return db_persons
 
-@person.post("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+@person.post("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"], dependencies=[Depends(Portador())])
 def read_user(id: int, db: Session = Depends(get_db)):
     db_person= crud.persons.get_person(db=db, id=id)
     if db_person is None:
@@ -33,14 +35,14 @@ def create_person(person: schemas.persons.PersonCreate, db: Session = Depends(ge
         raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
     return crud.persons.create_person(db=db, person=person)
 
-@person.put("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+@person.put("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"], dependencies=[Depends(Portador())])
 def update_person(id: int, person: schemas.persons.PersonUpdate, db: Session = Depends(get_db)):
     db_person = crud.persons.update_person(db=db, id=id, person=person)
     if db_person is None:
         raise HTTPException(status_code=404, detail="Persona no existe, no actualizado")
     return db_person
 
-@person.delete("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"])
+@person.delete("/person/{id}", response_model=schemas.persons.Person, tags=["Personas"], dependencies=[Depends(Portador())])
 def delete_person(id: int, db: Session = Depends(get_db)):
     db_person = crud.persons.delete_person(db=db, id=id)
     if db_person is None:
