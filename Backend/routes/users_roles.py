@@ -44,14 +44,20 @@ def create_user(userrol: schemas.users_roles.UserRolCreate, db: Session = Depend
     if db_userrol:
         raise HTTPException(status_code=400, detail="Usuario existente intenta nuevamente")
     return crud.users_roles.create_userrol(db=db, userrol=userrol)
+    # return crud.users_roles.create_userrol(db=db, userrol=userrol)
 
 @users_roles.put("/users_roles/{id_user}/{id_rol}", response_model=schemas.users_roles.UserRol, tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
 def update_user(id_user: int, id_rol: int, userrol: schemas.users_roles.UserRolUpdate, db: Session = Depends(get_db)):
     db_userrol = crud.users_roles.update_userrol(db=db, id_user=id_user, id_rol=id_rol, userrol=userrol)
-    print (db_userrol.Estatus)
+    
     if db_userrol is None:
         raise HTTPException(status_code=404, detail="Usuario no existe, no actualizado")
+    
+    # Ahora es seguro acceder a los atributos de db_userrol
+    print(db_userrol.Estatus)
+    
     return db_userrol
+
 
 @users_roles.delete("/users_roles/{id_user}/{id_rol}", response_model=schemas.users_roles.UserRol, tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
 def delete_rol(id_user: int, id_rol: int, db: Session = Depends(get_db)):
