@@ -5,8 +5,11 @@ import RegisterView from '@/components/Register.vue'
 import DashboardView from '@/components/Dashboard.vue'
 import UserView from '@/components/User.vue'
 import PersonView from '@/components/Person.vue'
+// 
 import RequestView from '@/components/RequestTransplant.vue'
 import TableRView from '@/components/TableRequest.vue'
+import UpdateRView from '@/components/UpdateRequest.vue'
+// 
 import OrgansView from '@/components/Organs.vue'
 import FooterView from '@/components/Footer.vue'
 
@@ -57,6 +60,11 @@ const router = createRouter({
       path: '/TableTransplante',
       name: 'TableTransplante',
       component: TableRView
+    },
+    {
+      path: '/UpdateTransplante',
+      name: 'UpdateTransplante',
+      component: UpdateRView
     },
     {
       path: '/organos',
