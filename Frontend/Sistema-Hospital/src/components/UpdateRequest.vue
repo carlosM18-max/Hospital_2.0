@@ -1,6 +1,6 @@
 <template>
     <form>
-        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 rounded-lg shadow-lg overflow-hidden">
+        <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 rounded-lg shadow-lg overflow-hidden mt-5">
             <!-- Done Information -->
             <div class="flex justify-between  flex-col items-center">
                 <label class="block text-gray-700 text-3xl font-normal mb-2">Informacion del Solicitante</label>
