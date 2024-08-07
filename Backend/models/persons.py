@@ -22,7 +22,7 @@ class Person(Base):
     __tablename__ = "tbb_personas"
     
     ID = Column(Integer, primary_key=True, index=True)
-    Titulo_Cortesia = Column(String(255))
+    Titulo = Column(String(255))
     Nombre = Column(String(255))
     Primer_Apellido = Column(String(255))
     Segundo_Apellido = Column(String(255))

@@ -50,7 +50,7 @@ def delete_user(id: int, db: Session = Depends(get_db)):
         raise HTTPException(status_code=404, detail="Usuario no existe, no se pudo eliminar")
     return db_user
 
-@user.post("/login/}", response_model=schemas.users.UserLogin, tags=["Usuarios Login"])
+@user.post("/login/", response_model=schemas.users.UserLogin, tags=["Usuarios Login"])
 def read_credentials(usuario:schemas.users.UserLogin, db: Session = Depends(get_db)):
     db_credentials = crud.users.get_user_by_credentials(db, username=usuario.Nombre_Usuario, correo=usuario.Correo_Electronico, telefono=usuario.Numero_Telefonico_Movil, password=usuario.Contrasena)
     if db_credentials is None:

@@ -6,7 +6,7 @@ from models.persons import MyGenero, MySangre
 
 class PersonBase(BaseModel):
     
-    Titulo_Cortesia:str
+    Titulo:str
     Nombre: str
     Primer_Apellido: str
     Segundo_Apellido: str
