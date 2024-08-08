@@ -45,4 +45,4 @@ class OrganoUpdate(OrganoBase):
 class Organo(OrganoBase):
     ID: int
     class Config:
-        orm_mode = True
+        from_attributes = True
