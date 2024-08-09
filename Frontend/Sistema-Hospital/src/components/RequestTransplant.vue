@@ -43,6 +43,10 @@
                 <select
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center">
                     <option value="">-- Selecciona una Opcion --</option>
+                    <option value="Urgente">Urgente</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Moderada">Moderada</option>
+                    <option value="Normal">Normal</option>
                 </select>
             </div>
             <div class="mt-4">
@@ -60,6 +64,12 @@
                 <select
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center">
                     <option value="">-- Selecciona una Opcion --</option>
+                    <option value="Registrada">Registrada</option>
+                    <option value="Programada">Programada</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Reprogramada">Reprogramada</option>
+                    <option value="En_Proceso">En Proceso</option>
+                    <option value="Realizada">Realizada</option>
                 </select>
             </div>
             <div class="mt-4">
@@ -82,3 +92,18 @@
         </div>
     </form>
 </template>
+
+
+<script>
+import {crearSolicitud} from '../api/solicitud'
+
+let crearSolicitudInstancia = [];
+
+crearSolicitud().then(solicitudes => {
+  crearSolicitudInstancia = solicitudes
+}).catch(error => {
+  console.error(`Error: ${error}`)
+})
+
+
+</script>

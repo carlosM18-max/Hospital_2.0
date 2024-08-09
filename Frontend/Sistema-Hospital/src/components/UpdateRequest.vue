@@ -43,6 +43,10 @@
                 <select
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center">
                     <option value="">-- Selecciona una Opcion --</option>
+                    <option value="Urgente">Urgente</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Moderada">Moderada</option>
+                    <option value="Normal">Normal</option>
                 </select>
             </div>
             <div class="mt-4">
@@ -60,6 +64,12 @@
                 <select
                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center">
                     <option value="">-- Selecciona una Opcion --</option>
+                    <option value="Registrada">Registrada</option>
+                    <option value="Programada">Programada</option>
+                    <option value="Cancelada">Cancelada</option>
+                    <option value="Reprogramada">Reprogramada</option>
+                    <option value="En_Proceso">En Proceso</option>
+                    <option value="Realizada">Realizada</option>
                 </select>
             </div>
             <div class="mt-4">
@@ -75,7 +85,7 @@
             <!-- Send Form -->
             <div class="mt-8">
                 <RouterLink to="/TableTransplante">
-                    <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-500 mb-5">Actualizar
+                    <button class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-500 mb-5">Generar
                         Solicitud</button>
                 </RouterLink>
             </div>
