@@ -315,39 +315,3 @@
     </nav>
   </form>
 </template>
-
-<script>
-import {obtenerSolicitudes, obtenerSolicitudesID, actualizarSolicitud, eliminarSolicitud} from '../api/solicitud'
-
-let obtenerSolicitudesInstancia = [];
-let obtenerSolicitudesIDInstancia = [];
-let actualizarSolicitudInstancia = [];
-let eliminarSolicitudInstancia = [];
-
-obtenerSolicitudes().then(solicitudes => {
-  obtenerSolicitudesInstancia = solicitudes
-}).catch(error => {
-  console.error(`Error: ${error}`)
-})
-
-obtenerSolicitudesID().then(solicitudes => {
-    obtenerSolicitudesIDInstancia = solicitudes
-}).catch(error => {
-  console.error(`Error: ${error}`)
-})
-
-actualizarSolicitud().then(solicitudes => {
-    actualizarSolicitudInstancia = solicitudes
-}).catch(error => {
-  console.error(`Error: ${error}`)
-})
-
-eliminarSolicitud().then(solicitudes => {
-    eliminarSolicitudInstancia = solicitudes
-}).catch(error => {
-  console.error(`Error: ${error}`)
-})
-
-
-
-</script>
