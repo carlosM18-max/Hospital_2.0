@@ -1,8 +1,3 @@
 Paquetes a instalar:
 
 pip install fastapi uvicorn SQLAlchemy pydantic pymysql mysqlclient pyjwt
-
-Para solucionar el error del encode y decode desinstalar e instalar el jwt y el pyjwt
-
-pip uninstall jwt
-pip uninstall pyjwt

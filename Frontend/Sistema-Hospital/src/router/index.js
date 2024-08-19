@@ -62,9 +62,10 @@ const router = createRouter({
       component: TableRView
     },
     {
-      path: '/UpdateTransplante',
+      path: '/UpdateTransplante/:id',
       name: 'UpdateTransplante',
-      component: UpdateRView
+      component: UpdateRView,
+      props: true
     },
     {
       path: '/organos',

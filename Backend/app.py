@@ -9,6 +9,7 @@ from routes.tbc_organos import tbc_organos
 from routes.personal_medico import personal_medico
 from routes.departamentos import departamentos
 from routes.areas_medicas import area_medica
+from routes.servicios_medicos import serviceM
 
 
 app = FastAPI()  # variable app
@@ -30,6 +31,7 @@ app.include_router(rol)
 app.include_router(users_roles)
 app.include_router(request)
 app.include_router(tbc_organos)
+app.include_router(serviceM)
 
 
 

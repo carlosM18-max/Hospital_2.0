@@ -1,45 +1,91 @@
-async function registrarSolicitud(solicitud) {
-  return new Promise((resolve, reject) => {
-      fetch("http://127.0.0.1:8000/solicitudes/", {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(solicitud),
-      })
-      .then((res) => {
-          if (!res.ok) {
-              throw new Error("Error al registrar la solicitud");
-          }
-          return res.json();
-      })
-      .then((response) => {
-          resolve(response);
-      })
-      .catch((error) => {
-          console.error("Error al enviar la solicitud al servidor: " + error);
-          reject(error);
-      });
-  });
-}
+async function registrarSolicitud(data) {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/solicitudes/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+        
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error al registrar la solicitud: ${errorData.detail}`);
+        }
+        
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error.message);
+        throw new Error('Error al registrar la solicitud');
+    }
+};
 
-async function obtenerDatosSolicitud() {
-    return new Promise((resolve, reject) => {
-        fetch("http://127.0.0.1:8000/solicitudes/")
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error("Error al obtener el personal médico");
-                }
-                return res.json();
-            })
-            .then((solicitud) => {
-                resolve(solicitud);
-            })
-            .catch((error) => {
-                console.error("Error al enviar la petición de personal médico al servidor: " + error);
-                reject(error);
-            });
-    });
-}
+async function obtenerSolicitudes() {
+    try {
+        const response = await fetch('http://127.0.0.1:8000/solicitudes/', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
 
-export {registrarSolicitud, obtenerDatosSolicitud}
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error al obtener las solicitudes: ${errorData.detail}`);
+        }
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error.message);
+        throw new Error('Error al obtener las solicitudes');
+    }
+};
+
+async function obtenerSolicitudPorId(id) {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/solicitudes/${id}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error al obtener la solicitud con ID ${id}: ${errorData.detail}`);
+        }
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error.message);
+        throw new Error(`Error al obtener la solicitud con ID ${id}`);
+    }
+};
+
+async function actualizarSolicitud(id, solicitudData) {
+    try {
+        const response = await fetch(`http://127.0.0.1:8000/solicitudes/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(solicitudData),
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(`Error al actualizar la solicitud con ID ${id}: ${errorData.detail}`);
+        }
+
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(error.message);
+        throw new Error(`Error al actualizar la solicitud con ID ${id}`);
+    }
+};
+
+export {registrarSolicitud, obtenerSolicitudes, obtenerSolicitudPorId, actualizarSolicitud}

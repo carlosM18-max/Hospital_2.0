@@ -14,7 +14,7 @@ def get_all_personal_medico(db, skip: int = 0, limit: int = 10):
 
 def create_personal_medico(db: Session, personalMedico: schemas.personal_medico.PersonalMedicoCreate):
     db_personal_medico = models.personal_medico.PersonalMedico(
-        Persona_ID=personalMedico.Persona_ID,  # Debes asegurarte de que este campo sea proporcionado o se maneje de manera apropiada
+        Persona_ID=personalMedico.Persona_ID,  
         Departamento_ID=personalMedico.Departamento_ID,
         Cedula_Profesional=personalMedico.Cedula_Profesional,
         Tipo=personalMedico.Tipo,

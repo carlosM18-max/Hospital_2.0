@@ -23,6 +23,13 @@ def read_requests(skip: int = 0, limit: int = 10, db: Session = Depends(get_db))
     db_request = crud.solicitudes.get_requests(db=db, skip=skip, limit=limit)
     return db_request
 
+@request.get("/solicitudes/{id}", response_model=schemas.solicitudes.Solicitud, tags=["Solicitudes"])
+def get_request(id: int, db: Session = Depends(get_db)):
+    db_request = db.query(models.solicitudes.Solicitud).filter(models.solicitudes.Solicitud.ID == id).first()
+    if db_request is None:
+        raise HTTPException(status_code=404, detail="Solicitud no encontrada")
+    return db_request
+
 @request.post("/solicitudes/{id}", response_model=schemas.solicitudes.Solicitud, tags=["Solicitudes"], dependencies=[Depends(Portador)])
 def read_request(id: int, db: Session = Depends(get_db)):
     db_request = crud.solicitudes.get_request(db=db, id=id)
