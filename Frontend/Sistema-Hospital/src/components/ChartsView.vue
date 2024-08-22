@@ -1,8 +1,8 @@
 <template>
+    <!-- Gráficas en el Dashboard -->
     <div class="p-4">
-        <!-- Gráficas en el Dashboard -->
         <div class="flex justify-center gap-4 mb-4">
-            <!-- Gráfica de Donut -->
+            <!-- Gráfica de Dona -->
             <div class="flex-1 max-w-[400px]">
                 <apexchart type="donut" :options="priorityChartOptions" :series="priorityChartSeries" width="100%">
                 </apexchart>
@@ -17,12 +17,12 @@
 
         <!-- Gráficas de organos -->
         <div class="flex justify-center gap-4 mb-4">
-            <!-- Gráfica de Columnas sobre Disponibilidad de Órganos -->
+            <!-- Gráfica de Columnas-->
             <div class="flex-1 max-w-[400px]">
                 <apexchart type="bar" :options="organAvailabilityChartOptions" :series="organAvailabilityChartSeries"
                     width="100%"></apexchart>
             </div>
-            <!-- Gráfica de Líneas sobre Aparato/Sistema -->
+            <!-- Gráfica de Líneas -->
             <div class="flex-1 max-w-[400px]">
                 <apexchart type="line" :options="organSystemChartOptions" :series="organSystemChartSeries" width="100%">
                 </apexchart>
@@ -40,7 +40,7 @@ export default {
     },
     data() {
         return {
-            // Opciones para la gráfica de donut
+            // Opciones para la gráfica de dona
             priorityChartOptions: {
                 chart: {
                     type: 'donut',
@@ -104,7 +104,7 @@ export default {
             },
             statusChartSeries: [{
                 name: 'Número de Solicitudes',
-                data: [0, 0, 0, 0, 0, 0], // Valores iniciales para la gráfica de barras
+                data: [0, 0, 0, 0, 0, 0], // Valores iniciales
             }],
             // Opciones para la gráfica de columnas
             organAvailabilityChartOptions: {
@@ -193,7 +193,6 @@ export default {
             const response = await fetch('http://127.0.0.1:8000/solicitudes');
             const solicitudes = await response.json();
 
-            // Contar el número de solicitudes por prioridad
             const priorityCounts = {
                 Urgente: 0,
                 Alta: 0,
@@ -202,7 +201,6 @@ export default {
                 Normal: 0,
             };
 
-            // Contar el número de solicitudes por estado
             const statusCounts = {
                 Registrada: 0,
                 Programada: 0,
@@ -222,7 +220,6 @@ export default {
                 }
             });
 
-            // Asignar los valores a las series del gráfico de donut
             this.priorityChartSeries = [
                 priorityCounts.Urgente,
                 priorityCounts.Alta,
@@ -231,7 +228,6 @@ export default {
                 priorityCounts.Normal,
             ];
 
-            // Asignar los valores a las series del gráfico de barras
             this.statusChartSeries[0].data = [
                 statusCounts.Registrada,
                 statusCounts.Programada,
@@ -244,14 +240,12 @@ export default {
             const result = await fetch('http://127.0.0.1:8000/organs');
             const organs = await result.json();
 
-            // Contar el número de órganos por disponibilidad
             const availabilityCounts = {
                 Disponible: 0,
                 No_Disponible: 0,
                 Reservado: 0,
             };
 
-            // Contar el número de órganos por aparato/sistema
             const systemCounts = {
                 Circulatorio: 0,
                 Digestivo: 0,
@@ -277,14 +271,12 @@ export default {
                 }
             });
 
-            // Asignar los valores a las series de la gráfica de columnas
             this.organAvailabilityChartSeries[0].data = [
                 availabilityCounts.Disponible,
                 availabilityCounts.No_Disponible,
                 availabilityCounts.Reservado,
             ];
 
-            // Asignar los valores a las series de la gráfica de líneas
             this.organSystemChartSeries[0].data = [
                 systemCounts.Circulatorio,
                 systemCounts.Digestivo,
