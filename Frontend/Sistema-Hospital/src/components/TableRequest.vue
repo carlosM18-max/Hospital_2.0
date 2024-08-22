@@ -46,14 +46,14 @@
           <tr v-for="solicitud in paginatedSolicitudes" :key="solicitud.ID"
             class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
             <td class="w-4 p-4"></td>
-            <td class="px-6 py-4 font-medium text-white">{{ getPacienteNombre(solicitud.Paciente_ID) }}</td>
-            <td class="px-6 py-4 font-medium text-white">{{ getMedicoNombre(solicitud.Medico_ID) }}</td>
-            <td class="px-6 py-4 font-medium text-white">{{ getServicioNombre(solicitud.Servicio_ID) }}</td>
-            <td class="px-6 py-4 font-medium text-white">{{ solicitud.Prioridad }}</td>
-            <td class="px-6 py-4 font-medium text-white text-center">{{ solicitud.Descripcion }}</td>
-            <td class="px-6 py-4 font-medium text-white text-center">{{ solicitud.Estatus }}</td>
-            <td class="px-6 py-4 font-medium text-white">{{ solicitud.Estatus_Aprobacion ? 'Aprobado' : 'Rechazado' }}</td>
-            <td class="px-6 py-4 font-medium text-white">
+            <td class="px-6 py-4 font-medium text-black">{{ getPacienteNombre(solicitud.Paciente_ID) }}</td>
+            <td class="px-6 py-4 font-medium text-black">{{ getMedicoNombre(solicitud.Medico_ID) }}</td>
+            <td class="px-6 py-4 font-medium text-black">{{ getServicioNombre(solicitud.Servicio_ID) }}</td>
+            <td class="px-6 py-4 font-medium text-black">{{ solicitud.Prioridad }}</td>
+            <td class="px-6 py-4 font-medium text-black text-center">{{ solicitud.Descripcion }}</td>
+            <td class="px-6 py-4 font-medium text-black text-center">{{ solicitud.Estatus }}</td>
+            <td class="px-6 py-4 font-medium text-black">{{ solicitud.Estatus_Aprobacion ? 'Aprobado' : 'Rechazado' }}</td>
+            <td class="px-6 py-4 font-medium text-black">
               <router-link :to="`/UpdateTransplante/${solicitud.ID}`"
                 class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-2">
                 <span class="material-symbols-outlined">edit</span>

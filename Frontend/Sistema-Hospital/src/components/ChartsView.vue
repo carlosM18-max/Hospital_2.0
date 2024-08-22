@@ -15,9 +15,9 @@
             </div>
         </div>
 
-        <!-- Gráficas de organos -->
+        <!-- Gráficas de órganos -->
         <div class="flex justify-center gap-4 mb-4">
-            <!-- Gráfica de Columnas-->
+            <!-- Gráfica de Columnas -->
             <div class="flex-1 max-w-[400px]">
                 <apexchart type="bar" :options="organAvailabilityChartOptions" :series="organAvailabilityChartSeries"
                     width="100%"></apexchart>
@@ -106,13 +106,13 @@ export default {
                 name: 'Número de Solicitudes',
                 data: [0, 0, 0, 0, 0, 0], // Valores iniciales
             }],
-            // Opciones para la gráfica de columnas
-            organAvailabilityChartOptions: {
+// Opciones para la gráfica de columnas
+organAvailabilityChartOptions: {
                 chart: {
                     type: 'bar',
                 },
                 xaxis: {
-                    categories: ['Disponible', 'No Disponible', 'Reservado'],
+                    categories: ['Disponible', 'No Disponible', 'Reservado', 'En Proceso', 'Entregado'],
                 },
                 title: {
                     text: 'Disponibilidad de Órganos',
@@ -145,7 +145,7 @@ export default {
             },
             organAvailabilityChartSeries: [{
                 name: 'Número de Órganos',
-                data: [0, 0, 0], // Valores iniciales
+                data: [0, 0, 0, 0, 0], // Valores iniciales actualizados
             }],
 
             // Opciones para la gráfica de líneas
@@ -237,35 +237,27 @@ export default {
                 statusCounts.Realizada,
             ];
 
-            const result = await fetch('http://127.0.0.1:8000/organs');
+            const result = await fetch('http://127.0.0.1:8000/organos/');
             const organs = await result.json();
+            console.log('Órganos:', organs); 
 
             const availabilityCounts = {
                 Disponible: 0,
-                No_Disponible: 0,
+                'No Disponible': 0,
                 Reservado: 0,
+                'En Proceso': 0,
+                Entregado: 0
             };
-
             const systemCounts = {
-                Circulatorio: 0,
-                Digestivo: 0,
-                Respiratorio: 0,
-                Nervioso: 0,
-                Muscular: 0,
-                Esquelético: 0,
-                Endocrino: 0,
-                Linfático: 0,
-                Inmunológico: 0,
-                Reproductor: 0,
-                Urinario: 0,
-                Sensorial: 0,
+                Circulatorio: 0, Digestivo: 0, Respiratorio: 0, Nervioso: 0, Muscular: 0, Esquelético: 0,
+                Endocrino: 0, Linfático: 0, Inmunológico: 0, Reproductor: 0, Urinario: 0, Sensorial: 0
             };
 
             organs.forEach(organ => {
+                console.log('Órgano:', organ); // Verifica cada órgano procesado
                 if (availabilityCounts[organ.Disponibilidad] !== undefined) {
                     availabilityCounts[organ.Disponibilidad]++;
                 }
-
                 if (systemCounts[organ.Aparato_Sistema] !== undefined) {
                     systemCounts[organ.Aparato_Sistema]++;
                 }
@@ -273,8 +265,10 @@ export default {
 
             this.organAvailabilityChartSeries[0].data = [
                 availabilityCounts.Disponible,
-                availabilityCounts.No_Disponible,
+                availabilityCounts['No Disponible'],
                 availabilityCounts.Reservado,
+                availabilityCounts['En Proceso'],
+                availabilityCounts.Entregado
             ];
 
             this.organSystemChartSeries[0].data = [
@@ -289,7 +283,7 @@ export default {
                 systemCounts.Inmunológico,
                 systemCounts.Reproductor,
                 systemCounts.Urinario,
-                systemCounts.Sensorial,
+                systemCounts.Sensorial
             ];
 
         } catch (error) {
