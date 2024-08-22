@@ -8,7 +8,7 @@ class MyEstatus(str, enum.Enum):
     Programada = "Programada"
     Cancelada = "Cancelada"
     Reprogramada = "Reprogramada"
-    En_Proceso = "En Proceso"
+    En_Proceso = "En_Proceso"
     Realizada = "Realizada"
 
 class MyPrioridad(str, enum.Enum):

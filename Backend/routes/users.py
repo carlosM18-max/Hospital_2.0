@@ -18,7 +18,7 @@ def get_db():
         db.close()
         
 @user.get("/users/", response_model=List[schemas.users.User], tags=["Usuarios"], dependencies=[Depends(Portador())])
-def read_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_users(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_users= crud.users.get_users(db=db, skip=skip, limit=limit)
     return db_users
 

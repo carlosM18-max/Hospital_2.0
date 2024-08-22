@@ -5,29 +5,15 @@ import RegisterView from '@/components/Register.vue'
 import DashboardView from '@/components/Dashboard.vue'
 import UserView from '@/components/User.vue'
 import PersonView from '@/components/Person.vue'
-// 
 import RequestView from '@/components/RequestTransplant.vue'
 import TableRView from '@/components/TableRequest.vue'
 import UpdateRView from '@/components/UpdateRequest.vue'
-// 
 import OrgansView from '@/components/Organs.vue'
 import FooterView from '@/components/Footer.vue'
-
-
-
-
-
-
-
 import OrganDetails from '@/components/Organ_Details.vue'
 import OrganForm from '@/components/OrganForm.vue'
-
-
-
-
-
-
-
+import ForgotPasswordView from '@/components/forgot-password.vue'
+import ChartsView from '@/components/ChartsView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,79 +26,65 @@ const router = createRouter({
     {
       path: '/register',
       name: 'register',
-      component: RegisterView
+      component: UserView
     },
     {
-      path: '/dashboard',
+      path: '/forgot-password',
+      name: 'forgot-password',
+      component: ForgotPasswordView
+    },
+    {
+      path: '/dsfsd',
       name: 'dashboard',
       component: DashboardView,
-      children:[{
-        path: '/person',
-        name: 'person',
-        component: PersonView
-      },
-    {
-      path: '/requestTansplant',
-      name: 'requestTransplant',
-      component: RequestView
-    },
-    {
-      path: '/TableTransplante',
-      name: 'TableTransplante',
-      component: TableRView
-    },
-    {
-      path: '/UpdateTransplante/:id',
-      name: 'UpdateTransplante',
-      component: UpdateRView,
-      props: true
-    },
-    {
-      path: '/organos',
-      name: 'organos',
-      component: OrgansView
-    },
-    {
-      path: '/footer',
-      name: 'footer',
-      component: FooterView
-    }
-
-
-
-
-
-
-
-
-
-
-    ,{
-      path: '/organdetails',
-      name: 'organdetails',
-      component: OrganDetails
-
-    },
-    {
-      path: '/organform',
-      name: 'organform',
-      component: OrganForm
-    }
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-  ]
+      children: [
+        {
+          path: '/dashboard',
+          name: 'charts',
+          component: ChartsView // Mostrar las gráficas aquí
+        },
+        {
+          path: '/person',
+          name: 'person',
+          component: PersonView
+        },
+        {
+          path: '/requestTansplant',
+          name: 'requestTransplant',
+          component: RequestView
+        },
+        {
+          path: '/TableTransplante',
+          name: 'TableTransplante',
+          component: TableRView
+        },
+        {
+          path: '/UpdateTransplante/:id',
+          name: 'UpdateTransplante',
+          component: UpdateRView,
+          props: true
+        },
+        {
+          path: '/organos',
+          name: 'organos',
+          component: OrgansView
+        },
+        {
+          path: '/footer',
+          name: 'footer',
+          component: FooterView
+        },
+        {
+          path: '/organdetails',
+          name: 'organdetails',
+          component: OrganDetails
+        },
+        {
+          path: '/organform',
+          name: 'organform',
+          component: OrganForm
+        }
+      ]
     },
     {
       path: '/about',

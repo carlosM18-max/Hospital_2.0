@@ -7,7 +7,7 @@ from sqlalchemy.orm import Session
 def get_personalMedico_by_ID(db: Session, Persona_ID: int):
     return db.query(models.personal_medico.PersonalMedico).filter(models.personal_medico.PersonalMedico.Persona_ID == Persona_ID).first()
 
-def get_all_personal_medico(db, skip: int = 0, limit: int = 10):
+def get_all_personal_medico(db, skip: int = 0, limit: int = 50):
     results = db.query(PersonalMedico).offset(skip).limit(limit).all()
     return results
 

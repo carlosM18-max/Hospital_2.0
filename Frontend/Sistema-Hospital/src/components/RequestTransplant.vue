@@ -51,6 +51,7 @@
                 <option value="Urgente">Urgente</option>
                 <option value="Alta">Alta</option>
                 <option value="Moderada">Moderada</option>
+                <option value="Emergente">Emergente</option>
                 <option value="Normal">Normal</option>
             </select>
         </div>
@@ -70,7 +71,7 @@
                 <option value="Programada">Programada</option>
                 <option value="Cancelada">Cancelada</option>
                 <option value="Reprogramada">Reprogramada</option>
-                <option value="En_Proceso">En Proceso</option>
+                <option value="En_Proceso">En_Proceso</option>
                 <option value="Realizada">Realizada</option>
             </select>
         </div>
@@ -126,6 +127,7 @@ export default {
         async fetchPersonas() {
             try {
                 const personas = await obtenerPersonas();
+                // Filtra personas para pacientes y médicos basados en el título
                 this.personas = personas.filter(persona => persona.Titulo !== 'Dr.' && persona.Titulo !== 'Dra.');
                 this.medicos = personas.filter(persona => persona.Titulo === 'Dr.' || persona.Titulo === 'Dra.');
                 console.log('Personas:', this.personas);

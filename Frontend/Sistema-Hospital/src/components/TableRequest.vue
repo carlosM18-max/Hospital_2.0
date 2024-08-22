@@ -104,7 +104,7 @@ export default {
       medicos: [],
       servicios: [],
       currentPage: 1,
-      pageSize: 5,
+      pageSize: 10,
       searchTerm: '', 
     };
   },

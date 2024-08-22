@@ -20,7 +20,7 @@ def get_db():
         db.close()
 
 @rol.get("/roles/", response_model=List[schemas.roles.Rol], tags=["Roles"], dependencies=[Depends(Portador())])
-def read_roles(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_roles(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_rol= crud.roles.get_roles(db=db, skip=skip, limit=limit)
     return db_rol
 

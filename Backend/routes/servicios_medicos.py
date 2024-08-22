@@ -15,7 +15,7 @@ def get_db():
         db.close()
 
 @serviceM.get("/servicios_medicos/", response_model=List[schemas.servicios_medicos.Service], tags=["Servicios Medicos"])
-def read_servicesM(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_servicesM(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_serviceM = crud.servicios_medicos.get_servicesM(db=db, skip=skip, limit=limit)
     return db_serviceM
 

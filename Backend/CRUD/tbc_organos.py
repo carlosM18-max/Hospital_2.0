@@ -2,7 +2,7 @@ from sqlalchemy.orm import Session
 import models.tbc_organos as models
 import schemas.tbc_organos as schemas
 
-def get_organos(db: Session, skip: int = 0, limit: int = 10):
+def get_organos(db: Session, skip: int = 0, limit: int = 50):
     return db.query(models.Organo).offset(skip).limit(limit).all()
 
 def get_organo(db: Session, id: int):
@@ -33,3 +33,6 @@ def delete_organo(db: Session, id: int):
         db.delete(db_organo)
         db.commit()
     return db_organo
+
+
+

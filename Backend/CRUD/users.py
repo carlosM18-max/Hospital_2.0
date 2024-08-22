@@ -15,7 +15,7 @@ def get_user_by_credentials(db: Session, username: str, correo: str, telefono: s
                                               (models.users.User.Numero_Telefonico_Movil == telefono), 
                                                 models.users.User.Contrasena == password).first()
 
-def get_users(db: Session, skip: int = 0, limit: int = 10):
+def get_users(db: Session, skip: int = 0, limit: int = 50):
     return db.query(models.users.User).offset(skip).limit(limit).all()
 
 def create_user(db: Session, user: schemas.users.UserCreate):

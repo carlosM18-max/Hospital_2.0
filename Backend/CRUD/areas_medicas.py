@@ -8,7 +8,7 @@ def get_area_medica(db: Session, id: int):
 def get_area_medica_by_nombre(db: Session, nombre: str):
     return db.query(models.areas_medicas.AreaMedica).filter(models.areas_medicas.AreaMedica.Nombre == nombre).first()
 
-def get_areas_medicas(db: Session, skip: int = 0, limit: int = 10):
+def get_areas_medicas(db: Session, skip: int = 0, limit: int = 50):
     return db.query(models.areas_medicas.AreaMedica).offset(skip).limit(limit).all()
 
 def create_area_medica(db: Session, area: schemas.areas_medicas.AreaMedicaCreate):

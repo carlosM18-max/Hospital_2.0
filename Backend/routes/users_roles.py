@@ -24,7 +24,7 @@ def get_db():
         db.close()
         
 @users_roles.get("/users_roles/", response_model=List[schemas.users_roles.UserRol], tags=["Usuarios Roles"], dependencies=[Depends(Portador())])
-def read_users_roles(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_users_roles(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_users_roles= crud.users_roles.get_users_roles(db=db, skip=skip, limit=limit)
     return db_users_roles
 

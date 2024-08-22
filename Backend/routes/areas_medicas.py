@@ -18,7 +18,7 @@ def get_db():
         db.close()
 
 @area_medica.get("/areas_medicas/", response_model=List[schemas.areas_medicas.AreaMedica], tags=["Áreas Médicas"], dependencies=[Depends(Portador())])
-def read_areas_medicas(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+def read_areas_medicas(skip: int = 0, limit: int = 50, db: Session = Depends(get_db)):
     db_areas = crud.areas_medicas.get_areas_medicas(db=db, skip=skip, limit=limit)
     return db_areas
 

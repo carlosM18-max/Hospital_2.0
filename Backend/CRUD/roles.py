@@ -9,7 +9,7 @@ def get_rol(db: Session, id: int):
 def get_rol_by_nombre(db: Session, rol: str):
     return db.query(models.roles.Roles).filter(models.roles.Roles.Nombre == rol).first()
 
-def get_roles(db: Session, skip: int = 0, limit: int = 10):
+def get_roles(db: Session, skip: int = 0, limit: int = 50):
     return db.query(models.roles.Roles).offset(skip).limit(limit).all()
 
 def create_rol(db: Session, rol: schemas.roles.RolCreate):
