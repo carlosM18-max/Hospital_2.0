@@ -3,13 +3,13 @@
     <div class="p-4">
         <div class="flex justify-center gap-4 mb-4">
             <!-- Gráfica de Dona -->
-            <div class="flex-1 max-w-[400px]">
+            <div class="flex-1 max-w-[500px] border">
                 <apexchart type="donut" :options="priorityChartOptions" :series="priorityChartSeries" width="100%">
                 </apexchart>
             </div>
 
             <!-- Gráfica de Barras -->
-            <div class="flex-1 max-w-[400px]">
+            <div class="flex-1 max-w-[500px] border">
                 <apexchart type="bar" :options="statusChartOptions" :series="statusChartSeries" width="100%">
                 </apexchart>
             </div>
@@ -18,12 +18,12 @@
         <!-- Gráficas de órganos -->
         <div class="flex justify-center gap-4 mb-4">
             <!-- Gráfica de Columnas -->
-            <div class="flex-1 max-w-[400px]">
+            <div class="flex-1 max-w-[500px] border">
                 <apexchart type="bar" :options="organAvailabilityChartOptions" :series="organAvailabilityChartSeries"
                     width="100%"></apexchart>
             </div>
             <!-- Gráfica de Líneas -->
-            <div class="flex-1 max-w-[400px]">
+            <div class="flex-1 max-w-[500px] border">
                 <apexchart type="line" :options="organSystemChartOptions" :series="organSystemChartSeries" width="100%">
                 </apexchart>
             </div>

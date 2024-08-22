@@ -180,12 +180,13 @@
           Crear Cuenta
         </button>
 
-
-        <button @click="cancelRegistration" 
+        <a href="/">
+        <button  
                 type="button" 
                 class="bg-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-400 mb-5">
           Cancelar
         </button>
+      </a>
       </div>
     </div>
   </form>
