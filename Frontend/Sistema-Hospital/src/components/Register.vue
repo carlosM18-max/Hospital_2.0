@@ -6,7 +6,7 @@
                 <div class="w-full p-8 lg:w-1/2 mb-20">
                     <h2 class="text-2xl font-semibold text-gray-700 text-center mb-20"></h2>
                     <p class="text-xl text-gray-600 text-center"></p>
-                    <User></User>
+        
                 </div>
             </div>
         </div>
@@ -18,7 +18,6 @@ import User from './User.vue';
 export default {
     components: {
 
-        User
     }
 }
 </script>

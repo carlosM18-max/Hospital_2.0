@@ -43,11 +43,7 @@ const router = createRouter({
           name: 'charts',
           component: ChartsView // Mostrar las gráficas aquí
         },
-        {
-          path: '/person',
-          name: 'person',
-          component: PersonView
-        },
+        
         {
           path: '/requestTansplant',
           name: 'requestTransplant',
