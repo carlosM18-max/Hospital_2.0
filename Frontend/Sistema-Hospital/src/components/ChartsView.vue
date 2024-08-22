@@ -293,7 +293,7 @@ export default {
             ];
 
         } catch (error) {
-            console.error('Error al obtener solicitudes:', error);
+            // console.error('Error al obtener solicitudes:', error);
             console.error('Error al obtener órganos:', error);
         }
     },
